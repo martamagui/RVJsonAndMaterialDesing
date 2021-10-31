@@ -4,43 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Film title"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_original_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Texto en Japonés"
-        app:layout_constraintBottom_toTopOf="@+id/tv_rt_score"
-        app:layout_constraintStart_toStartOf="@+id/tv_title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+            <!-- Media -->
+            <ImageView
+                android:id="@+id/iv_film"
+                android:layout_width="match_parent"
+                android:layout_height="194dp"
+                android:contentDescription="Descripción de la imágen."
+                android:scaleType="centerCrop"
+                app:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/tv_rt_score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toStartOf="@+id/tv_original_title" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <!-- Title, secondary and supporting text -->
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                <TextView
+                    android:id="@+id/tv_original_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Texto en japonés"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/tv_rate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="Rate"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
