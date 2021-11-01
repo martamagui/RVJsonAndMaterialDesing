@@ -1,4 +1,4 @@
-package com.marta.jsonmaterialdesign
+package com.marta.jsonmaterialdesign.model
 
 import com.google.gson.annotations.SerializedName
 

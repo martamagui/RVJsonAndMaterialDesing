@@ -1,6 +1,7 @@
 package com.marta.jsonmaterialdesign
 
 import android.app.Application
+import com.marta.jsonmaterialdesign.model.Film
 
 class App : Application() {
     val filmList: MutableList<Film> = mutableListOf()

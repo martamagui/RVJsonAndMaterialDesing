@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.gson.Gson
 import com.marta.jsonmaterialdesign.databinding.ActivityMainBinding
 import com.marta.jsonmaterialdesign.model.FilmsResponse
+import com.marta.jsonmaterialdesign.model.GhibliData
+import com.marta.jsonmaterialdesign.model.toFilm
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -21,11 +23,15 @@ class MainActivity : AppCompatActivity() {
         val app = application as App
         val films = app.filmList
         val filmsResults = Gson().fromJson(GhibliData.ghibliJson, FilmsResponse::class.java)
-        Log.d("mainmsg",(filmsResults.filmsGhibli.size).toString())
+        Log.d("mainMsg",(filmsResults.filmsGhibli.size).toString())
         films.addAll(filmsResults.filmsGhibli.toFilm())
         adapter = FilmAdapter(films)
         binding.rvFilms.adapter = adapter
 
 
+    }
+    override fun onResume() {
+        super.onResume()
+        adapter.notifyDataSetChanged()
     }
 }

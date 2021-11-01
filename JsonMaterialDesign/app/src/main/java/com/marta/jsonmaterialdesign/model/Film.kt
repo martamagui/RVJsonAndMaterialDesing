@@ -1,7 +1,6 @@
-package com.marta.jsonmaterialdesign
+package com.marta.jsonmaterialdesign.model
 
 import android.util.Log
-import com.google.gson.annotations.SerializedName
 
 data class Film(
     val film_id: String,
@@ -46,7 +45,7 @@ data class Film(
 }
 
 fun FilmResponse.toFilm(): Film {
-    Log.d("Peli",this.title)
+    Log.d("Peli",this.image)
     return Film(
         this.film_id,
         this.title,

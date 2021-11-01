@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.marta.jsonmaterialdesign.databinding.ItemFilmBinding
+import com.marta.jsonmaterialdesign.model.Film
 
 class FilmAdapter(private val filmResponses: MutableList<Film>) : RecyclerView.Adapter<FilmAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapter.ViewHolder {
@@ -18,7 +19,10 @@ class FilmAdapter(private val filmResponses: MutableList<Film>) : RecyclerView.A
         holder.binding.tvTitle.text = film.title
         holder.binding.tvOriginalTitle.text = film.originalTitle
         holder.binding.tvRate.text = film.rtScore
-        Glide.with(holder.binding.ivFilm.context).load(film.image)
+        Glide.with(holder.binding.ivFilm.context)
+            .load(film.image)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(holder.binding.ivFilm)
     }
 
     override fun getItemCount(): Int {
