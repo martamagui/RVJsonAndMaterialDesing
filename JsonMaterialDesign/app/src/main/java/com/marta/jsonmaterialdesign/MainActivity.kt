@@ -21,8 +21,9 @@ class MainActivity : AppCompatActivity() {
         val app = application as App
         val films = app.filmList
         val filmsResults = Gson().fromJson(GhibliData.ghibliJson, FilmsResponse::class.java)
-        Log.d("main",(filmsResults.filmsGhibli.size).toString())
+        Log.d("mainmsg",(filmsResults.filmsGhibli.size).toString())
         films.addAll(filmsResults.filmsGhibli.toFilm())
+        adapter = FilmAdapter(films)
         binding.rvFilms.adapter = adapter
 
 
