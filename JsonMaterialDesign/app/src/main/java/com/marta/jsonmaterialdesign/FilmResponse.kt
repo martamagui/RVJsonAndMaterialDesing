@@ -1,8 +1,8 @@
-package com.marta.jsonmaterialdesign.model
+package com.marta.jsonmaterialdesign
 
 import com.google.gson.annotations.SerializedName
 
-data class Film(
+data class FilmResponse(
     @SerializedName("id")
     val film_id: String,
     @SerializedName("title")
