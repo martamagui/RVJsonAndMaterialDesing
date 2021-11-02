@@ -7,7 +7,8 @@ import com.bumptech.glide.Glide
 import com.marta.jsonmaterialdesign.databinding.ItemFilmBinding
 import com.marta.jsonmaterialdesign.model.Film
 
-class FilmAdapter(private val filmResponses: MutableList<Film>) : RecyclerView.Adapter<FilmAdapter.ViewHolder>() {
+class FilmAdapter(private val filmResponses: MutableList<Film>) :
+    RecyclerView.Adapter<FilmAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapter.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val binding = ItemFilmBinding.inflate(layoutInflater, parent, false)
@@ -20,7 +21,9 @@ class FilmAdapter(private val filmResponses: MutableList<Film>) : RecyclerView.A
         holder.binding.tvOriginalTitle.text = film.originalTitle
         holder.binding.tvRate.text = film.rtScore
         Glide.with(holder.binding.ivFilm.context)
-            .load(film.image)
+            //Se ve mejor que la imagen.
+            //TODO poner en el detail la img normal en vez del banner
+            .load(film.movieBanner)
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.ivFilm)
     }
