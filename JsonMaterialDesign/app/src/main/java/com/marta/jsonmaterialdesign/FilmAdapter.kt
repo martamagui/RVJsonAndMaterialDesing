@@ -23,6 +23,7 @@ class FilmAdapter(private val filmResponses: MutableList<Film>) :
         Glide.with(holder.binding.ivFilm.context)
             //Se ve mejor que la imagen.
             //TODO poner en el detail la img normal en vez del banner
+            // TODO: 03/11/2021  
             .load(film.movieBanner)
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.ivFilm)
